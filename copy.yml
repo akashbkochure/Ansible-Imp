@@ -7,3 +7,15 @@
       copy:
         src: src_path
         dest: dest_path
+
+
+
+---
+ - hosts: tomcat
+   become: true
+   tasks:
+           - name: copy war file onto tomcat instance
+             copy:
+                     src: /opt/playbooks/target/webapp.war
+                     dest: /opt/apache-tomcat-8.5.40/webapps
+
